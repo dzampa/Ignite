@@ -73,6 +73,97 @@
                 }
 
             }
+        },
+        "/categories/import":{
+            "post":{
+                "tags":["category"],
+                "summary":"Upload a new category",
+                "requestBody":{
+                    "content":{
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "file":{
+                                        "type":"string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/specifications":{
+            "post":{
+                "tags": ["specificatons"],
+                "summary": "Create a specification",
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/definitions/Specification"
+                            }
+                        }
+                    }
+                }
+            },
+            "response":{
+                "201":{
+                    "description":"Create"
+                },
+                "500":{
+                    "description":"Speicfications already exists"
+                }
+            },
+            "get": {
+                "tags": ["specificatons"],
+                "summary": "list all specification",
+                "description": "List all specification",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+    
+            }
+        }
+    },
+    "definitions": {
+        "Specification":{
+            "type": "object",
+            "properties":{
+                "name":{
+                    "type":"string"
+                },
+                "description":{
+                    "type":"string"
+                }
+            }
         }
     }
 }

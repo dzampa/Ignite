@@ -1,4 +1,4 @@
-import { SpecificationRepository } from "../../repositories/implementations/SpecificationsRepository";
+/* mport { SpecificationRepository } from "../../repositories/implementations/SpecificationsRepository";
 import { CreateSpecificationController } from "./CreateSpecificationController";
 import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 
@@ -11,4 +11,4 @@ const createSpecificationController = new CreateSpecificationController(
     createSpeciticationUserCase
 );
 
-export { createSpecificationController };
+export { createSpecificationController }; */

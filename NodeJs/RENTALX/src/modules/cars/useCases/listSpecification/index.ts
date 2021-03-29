@@ -1,4 +1,4 @@
-import { SpecificationRepository } from "../../repositories/implementations/SpecificationsRepository";
+/* import { SpecificationRepository } from "../../repositories/implementations/SpecificationsRepository";
 import { ListSpecificationController } from "./ListSpecificationController";
 import { ListSpeciticationUseCase } from "./ListSpecificationUserCase";
 
@@ -10,4 +10,4 @@ const listSpecificationController = new ListSpecificationController(
     listSpecificationUseCase
 );
 
-export { listSpecificationController };
+export { listSpecificationController }; */
