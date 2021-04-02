@@ -22,17 +22,21 @@ export async function ensureAuthenticated(
     const [, token] = authHeader.split(" ");
 
     try {
-        const { sub: userId } = verify(
+        const { sub: user_id } = verify(
             token,
             "078c007bd92ddec308ae2f5115c1775d"
         ) as IPayload;
 
         const usersRepository = new UsersRepository();
-        const user = usersRepository.findById(userId);
+        const user = usersRepository.findById(user_id);
 
         if (!user) {
             throw new AppError("User does not exist", 401);
         }
+
+        request.user = {
+            id: user_id,
+        };
 
         next();
     } catch {
