@@ -2,10 +2,10 @@ interface ICreateCarDTO {
     name: string;
     description: string;
     daily_rate: number;
-    licence_plate: string;
+    license_plate: string;
     fine_amount: number;
     brand: string;
-    categoty_id: string;
+    category_id: string;
 }
 
 export { ICreateCarDTO };

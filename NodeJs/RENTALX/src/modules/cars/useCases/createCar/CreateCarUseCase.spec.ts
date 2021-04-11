@@ -16,10 +16,10 @@ describe("Create Car", () => {
             name: "Name Car",
             description: "Description Car",
             daily_rate: 100,
-            licence_plate: "ABC-1234",
+            license_plate: "ABC-1234",
             fine_amount: 60,
             brand: "Brand",
-            categoty_id: "category",
+            category_id: "category",
         });
         expect(car).toHaveProperty("id");
     });
@@ -29,19 +29,19 @@ describe("Create Car", () => {
                 name: "Car 1",
                 description: "Description Car",
                 daily_rate: 100,
-                licence_plate: "ABC-1234",
+                license_plate: "ABC-1234",
                 fine_amount: 60,
                 brand: "Brand",
-                categoty_id: "category",
+                category_id: "category",
             });
             await createCarUseCase.execute({
                 name: "Car 2",
                 description: "Description Car",
                 daily_rate: 100,
-                licence_plate: "ABC-1234",
+                license_plate: "ABC-1234",
                 fine_amount: 60,
                 brand: "Brand",
-                categoty_id: "category",
+                category_id: "category",
             });
         }).rejects.toBeInstanceOf(AppError);
     });
@@ -50,10 +50,10 @@ describe("Create Car", () => {
             name: "Name Car",
             description: "Description Car",
             daily_rate: 100,
-            licence_plate: "ABCD-1234",
+            license_plate: "ABCD-1234",
             fine_amount: 60,
             brand: "Brand",
-            categoty_id: "category",
+            category_id: "category",
         });
 
         expect(car.available).toBe(true);
