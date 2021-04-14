@@ -1,14 +1,16 @@
 import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
 
-import { ListCarsUseCase } from "./ListCarsUseCase";
+import { ListAvaliableCarsUseCase } from "./ListAvaliableCarsUseCase";
 
-let listCarsUseCase: ListCarsUseCase;
+let listAvaliableCarsUseCase: ListAvaliableCarsUseCase;
 let carsRepositoryInMemory: CarsRepositoryInMemory;
 
 describe("List Cars", () => {
     beforeEach(() => {
         carsRepositoryInMemory = new CarsRepositoryInMemory();
-        listCarsUseCase = new ListCarsUseCase(carsRepositoryInMemory);
+        listAvaliableCarsUseCase = new ListAvaliableCarsUseCase(
+            carsRepositoryInMemory
+        );
     });
 
     it("should be able to list all avalible cars", async () => {
@@ -21,7 +23,7 @@ describe("List Cars", () => {
             brand: "Car_brand",
             category_id: "category-id",
         });
-        const cars = await listCarsUseCase.execute({});
+        const cars = await listAvaliableCarsUseCase.execute({});
 
         expect(cars).toEqual([car]);
     });
@@ -36,7 +38,7 @@ describe("List Cars", () => {
             brand: "Car_brand_test",
             category_id: "category-id",
         });
-        const cars = await listCarsUseCase.execute({
+        const cars = await listAvaliableCarsUseCase.execute({
             brand: "Car_brand_test",
         });
 
@@ -53,7 +55,7 @@ describe("List Cars", () => {
             brand: "Car_brand_test",
             category_id: "202fb1cf-5419-462a-866d-2200f92c3fee",
         });
-        const cars = await listCarsUseCase.execute({
+        const cars = await listAvaliableCarsUseCase.execute({
             category_id: "202fb1cf-5419-462a-866d-2200f92c3fee",
         });
 
@@ -70,7 +72,7 @@ describe("List Cars", () => {
             brand: "Car_brand_test",
             category_id: "category-id",
         });
-        const cars = await listCarsUseCase.execute({
+        const cars = await listAvaliableCarsUseCase.execute({
             name: "Car4",
         });
 
