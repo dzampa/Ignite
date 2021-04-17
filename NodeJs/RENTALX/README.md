@@ -41,11 +41,12 @@ Utilizar o multer para upload dos arquivos
 O usuário deve poder cadastrar mais de uma imagem para o mesmo carro
 O usuário responsável pelo cadastro deve ser um usuário administrador.
 
-# Alugel de carro
+# Aluguel de carro
 **RF**
-Deve ser possível cadastrar um alugel
+Deve ser possível cadastrar um aluguel
 
 **RN**
-O alugel deve ter duração mínima de 24hs.
-Não deve ser possível cadastrar um novo alugel caso já exista um aberto para o mesmo usuário.
-Não deve ser possível cadastrar um novo alugel caso já exista um aberto para o mesmo carro.
+O aluguel deve ter duração mínima de 24hs.
+Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
+Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
+O usuário deve estar logado na aplicação 

@@ -3,20 +3,20 @@ import { container } from "tsyringe";
 
 import { AuthenticateUserUserCase } from "./AuthenticateUserUserCase";
 
-class AuthenticateUserControler {
+class AuthenticateUserController {
     async handle(request: Request, response: Response): Promise<Response> {
         const { password, email } = request.body;
         const authenticateUserUserCase = container.resolve(
             AuthenticateUserUserCase
         );
 
-        const autheticateInfo = await authenticateUserUserCase.execute({
+        const authenticateInfo = await authenticateUserUserCase.execute({
             password,
             email,
         });
 
-        return response.json(autheticateInfo);
+        return response.json(authenticateInfo);
     }
 }
 
-export { AuthenticateUserControler };
+export { AuthenticateUserController };

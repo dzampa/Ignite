@@ -102,7 +102,7 @@
         },
         "/specifications":{
             "post":{
-                "tags": ["specificatons"],
+                "tags": ["specifications"],
                 "summary": "Create a specification",
                 "requestBody": {
                     "content":{
@@ -119,11 +119,11 @@
                     "description":"Create"
                 },
                 "500":{
-                    "description":"Speicfications already exists"
+                    "description":"Specifications already exists"
                 }
             },
             "get": {
-                "tags": ["specificatons"],
+                "tags": ["specifications"],
                 "summary": "list all specification",
                 "description": "List all specification",
                 "responses": {

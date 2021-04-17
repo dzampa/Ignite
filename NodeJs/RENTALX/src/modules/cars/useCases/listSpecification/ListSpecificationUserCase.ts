@@ -1,13 +1,13 @@
 import { inject, injectable } from "tsyringe";
 
 import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
-import { ISpecificationsRepositoy } from "@modules/cars/repositories/ISpecificationsRepository";
+import { ISpecificationsRepository } from "@modules/cars/repositories/ISpecificationsRepository";
 
 @injectable()
-class ListSpeciticationUseCase {
+class ListSpecificationUseCase {
     constructor(
         @inject("SpecificationsRepository")
-        private specificationsRepository: ISpecificationsRepositoy
+        private specificationsRepository: ISpecificationsRepository
     ) {}
     async execute(): Promise<Specification[]> {
         const specifications = await this.specificationsRepository.list();
@@ -16,4 +16,4 @@ class ListSpeciticationUseCase {
     }
 }
 
-export { ListSpeciticationUseCase };
+export { ListSpecificationUseCase };

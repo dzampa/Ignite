@@ -1,5 +1,5 @@
 import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
-import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositotyInMemory";
+import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
 
 import { CreateUserUserCase } from "../createUser/CreateUserUseCase";
@@ -41,7 +41,7 @@ describe("Authenticate User", () => {
         }).rejects.toBeInstanceOf(AppError);
     });
 
-    it("should not be able to authneticate with incorrect passoword", () => {
+    it("should not be able to authenticate with incorrect password", () => {
         expect(async () => {
             const user: ICreateUserDTO = {
                 driver_license: "9999",
