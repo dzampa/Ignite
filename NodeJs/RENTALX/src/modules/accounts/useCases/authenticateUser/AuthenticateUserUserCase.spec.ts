@@ -7,7 +7,7 @@ import { AuthenticateUserUserCase } from "./AuthenticateUserUserCase";
 
 let authenticateUserUseCase: AuthenticateUserUserCase;
 let usersRepositoryInMemory: UsersRepositoryInMemory;
-let createuserUseCase: CreateUserUserCase;
+let createUserUseCase: CreateUserUserCase;
 
 describe("Authenticate User", () => {
     beforeEach(() => {
@@ -15,7 +15,7 @@ describe("Authenticate User", () => {
         authenticateUserUseCase = new AuthenticateUserUserCase(
             usersRepositoryInMemory
         );
-        createuserUseCase = new CreateUserUserCase(usersRepositoryInMemory);
+        createUserUseCase = new CreateUserUserCase(usersRepositoryInMemory);
     });
     it("should be able to authenticate an user", async () => {
         const user: ICreateUserDTO = {
@@ -24,7 +24,7 @@ describe("Authenticate User", () => {
             password: "1234",
             name: "User Test",
         };
-        await createuserUseCase.execute(user);
+        await createUserUseCase.execute(user);
         const result = await authenticateUserUseCase.execute({
             email: user.email,
             password: user.password,
@@ -50,7 +50,7 @@ describe("Authenticate User", () => {
                 name: "User Test Error",
             };
 
-            await createuserUseCase.execute(user);
+            await createUserUseCase.execute(user);
 
             await authenticateUserUseCase.execute({
                 email: user.email,
