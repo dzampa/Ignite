@@ -1,9 +1,9 @@
 import { resolve } from "path";
 import { inject, injectable } from "tsyringe";
-import { v4 as uuidV4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
-import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
-import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { IMailProvider } from "@shared/container/providers/MailProvider/IMailProvider";
 import { AppError } from "@shared/errors/AppError";
@@ -11,10 +11,10 @@ import { AppError } from "@shared/errors/AppError";
 @injectable()
 class SendForgotPasswordMailUseCase {
     constructor(
-        @inject("UsersRepository")
-        private usersRepository: UsersRepository,
+        @inject("UserRepository")
+        private usersRepository: IUsersRepository,
         @inject("UsersTokensRepository")
-        private usersTokensRepository: UsersTokensRepository,
+        private usersTokensRepository: IUsersTokensRepository,
         @inject("DayjsDateProvider")
         private dateProvider: IDateProvider,
         @inject("EtherealMailProvider")
@@ -34,10 +34,10 @@ class SendForgotPasswordMailUseCase {
         );
 
         if (!user) {
-            throw new AppError("User does not exists");
+            throw new AppError("User does not exists!");
         }
 
-        const token = uuidV4();
+        const token = uuidv4();
 
         const expires_date = this.dateProvider.addHours(3);
 
