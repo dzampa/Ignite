@@ -30,7 +30,7 @@ class UploadCarImagesUseCase {
                             image.substring(image.lastIndexOf("-"))
                         )
                     ) {
-                        await deleteFile(`./tmp/avatar/${carImage.image_name}`);
+                        await deleteFile(`./tmp/cars/${carImage.image_name}`);
                         newCarImage.id = carImage.id;
                         newCarImage.created_at = carImage.created_at;
                         await this.carsImagesRepository.create(newCarImage);
