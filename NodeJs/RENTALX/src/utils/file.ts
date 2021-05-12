@@ -1,11 +1,11 @@
 import fs from "fs";
 
-export const deleteFile = async (filemane: string) => {
+export const deleteFile = async (filename: string) => {
     try {
-        await fs.promises.stat(filemane);
+        await fs.promises.stat(filename);
     } catch {
         return;
     }
 
-    await fs.promises.unlink(filemane);
+    await fs.promises.unlink(filename);
 };
