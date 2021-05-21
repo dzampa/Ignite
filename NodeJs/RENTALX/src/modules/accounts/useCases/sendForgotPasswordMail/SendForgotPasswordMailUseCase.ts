@@ -11,13 +11,13 @@ import { AppError } from "@shared/errors/AppError";
 @injectable()
 class SendForgotPasswordMailUseCase {
     constructor(
-        @inject("UserRepository")
+        @inject("UsersRepository")
         private usersRepository: IUsersRepository,
         @inject("UsersTokensRepository")
         private usersTokensRepository: IUsersTokensRepository,
         @inject("DayjsDateProvider")
         private dateProvider: IDateProvider,
-        @inject("EtherealMailProvider")
+        @inject("MailProvider")
         private mailProvider: IMailProvider
     ) {}
 
