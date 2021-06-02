@@ -16,6 +16,9 @@ jobs:
         with:
           node_version: 14.x
           
+      - name: My first step
+        uses: ./NodeJs/RENTALX
+          
       - name: Install Dependencies
         run: yarn
       
@@ -28,5 +31,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
-          source: "NodeJs/RENTALX/., !node_modules"
+          source: "., !node_modules"
           target: "test"
