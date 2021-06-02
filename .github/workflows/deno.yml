@@ -10,14 +10,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+          
+      - name: My first step
+        uses: ./NodeJs/RENTALX
       
       - name: Setup NodeJs
         uses: actions/setup-node@v2
         with:
           node_version: 14.x
-          
-      - name: My first step
-        uses: ./NodeJs/RENTALX
           
       - name: Install Dependencies
         run: yarn
