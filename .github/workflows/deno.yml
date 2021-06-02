@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [main]
+    paths:
+      - 'NodeJs/RENTALX/**'
 
 jobs:
   test:
@@ -10,17 +12,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-          
-      - name: My first step
-        uses: ./NodeJs/RENTALX
       
       - name: Setup NodeJs
         uses: actions/setup-node@v2
         with:
           node_version: 14.x
-          
-      - name: Install Dependencies
-        run: yarn
       
       - name: Build
         run: yarn build
